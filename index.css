@@ -1,0 +1,1751 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* prevents overlap if you have a fixed navbar */
+}
+
+body {
+  background-color: #212835;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  padding: 25px 4%;
+  background-color: #181e29;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.navbar ul {
+    display: flex;
+    position: absolute;
+    left: 43%;
+    transform: translateX(-50%);
+    gap: 35px;
+    align-items: center;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 0;
+}
+
+.navbar ul li a {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: skyblue;
+}
+
+/* Responsive Navbar */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Make nav responsive */
+@media (max-width: 900px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: lightblue;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 0;
+  }
+
+  .navbar ul.active {
+    max-height: 300px; /* Adjust if you add more links */
+    opacity: 1;
+  }
+
+  .navbar ul li {
+    margin: 0;
+  }
+
+  .navbar ul li a {
+    font-size: 20px;
+  }
+}
+
+
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    gap: 50px;
+    min-height: 100vh;
+    padding: 120px 8% 70px;
+}
+
+/* HOME TEXT CARD */
+.home-info {
+    flex: 1;
+    min-width: 0;
+    background: #181e29;
+    padding: 45px 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 22px rgba(135, 206, 250, 0.62);
+    transition: 0.3s ease;
+}
+
+.home-info:hover {
+    box-shadow: 0 0 32px rgba(135, 206, 250, 0.85);
+}
+
+/* HOME HEADING */
+.home-info h1 {
+    color: #fff;
+    font-size: 60px;
+    line-height: 1.15;
+    margin: 0 0 10px;
+}
+
+.home-info h2 {
+    color: aqua;
+    font-size: 35px;
+    line-height: 1.25;
+    margin: 0 0 18px;
+}
+
+/* HOME PARAGRAPH */
+.home-info p {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 10px 0 25px;
+    text-align: justify;
+}
+
+/* BUTTON */
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    border: 2px solid #fff;
+    border-radius: 40px;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.35);
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: transparent;
+    color: aqua;
+    box-shadow: 0 0 14px rgba(135, 206, 250, 0.5);
+}
+
+/* HOME PICTURE */
+.image {
+    flex: 0 0 38%;
+    max-width: 420px;
+    min-width: 250px;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    margin: 0;
+    border-radius: 20px;
+    box-shadow: 0 0 22px rgba(135, 206, 250, 0.7);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.image img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 0 35px rgba(135, 206, 250, 0.9);
+}
+
+
+/* HOME PAGE RESPONSIVE */
+@media (max-width: 1000px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: auto;
+        height: auto;
+        padding: 115px 5% 60px;
+        gap: 30px;
+    }
+
+    .home-info {
+        order: 1;
+        width: 100%;
+        max-width: 680px;
+        padding: 30px 25px;
+        margin: 0;
+    }
+
+    .home-info h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+    }
+
+    .home-info h2 {
+        font-size: 26px;
+        margin: 0 0 15px;
+    }
+
+    .home-info p {
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        text-align: justify;
+    }
+
+    .home-info .button {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .home-info .button .btn {
+        padding: 10px 28px;
+        font-size: 16px;
+    }
+
+    .image {
+        order: 2;
+        flex: none;
+        width: 260px;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    .image img {
+        width: 100%;
+        height: auto;
+        max-height: 380px;
+        margin: 0;
+        border-radius: 15px;
+    }
+}
+
+
+/* ==========================================
+   KNOW ME SECTION
+========================================== */
+
+.know-me {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 120px 8% 80px;
+    background-color: #212835;
+}
+
+/* KNOW ME TEXT CARD */
+.know-me .text {
+    order: 2;
+    flex: 1;
+    min-width: 0;
+    background-color: #181e29;
+    padding: 40px;
+    border-radius: 25px;
+    box-shadow: 0 0 22px rgba(135, 206, 250, 0.62);
+    transition: 0.3s ease;
+}
+
+.know-me .text:hover {
+    box-shadow: 0 0 32px rgba(135, 206, 250, 0.85);
+}
+
+/* KNOW ME HEADING */
+.know-me .text h1 {
+    color: skyblue;
+    font-size: 50px;
+    line-height: 1.3;
+    margin: 0 0 20px;
+    text-align: left;
+}
+
+/* KNOW ME PARAGRAPH */
+.know-me .text p {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0;
+    text-align: justify;
+}
+
+/* KNOW ME PICTURE */
+.know-me .know-pic {
+    order: 1;
+    flex: 0 0 38%;
+    max-width: 380px;
+    min-width: 250px;
+    height: 480px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0;
+    box-shadow: 0 0 22px rgba(135, 206, 250, 0.7);
+    transition: box-shadow 0.35s ease;
+}
+
+.know-me .know-pic img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+}
+
+.know-me .know-pic:hover {
+    box-shadow: 0 0 35px rgba(135, 206, 250, 0.9);
+}
+
+.know-me .know-pic:hover img {
+    transform: scale(1.04);
+}
+
+/* RESUME BUTTON */
+.know-me .rbutton {
+    order: 3;
+    flex: 0 0 100%;
+    margin: -20px 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.know-me .rbutton .btn {
+    border-color: skyblue;
+    box-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+}
+
+.know-me .rbutton .btn:hover {
+    color: skyblue;
+    box-shadow: 0 0 20px rgba(135, 206, 250, 0.8);
+}
+
+/* KNOW ME RESPONSIVE */
+@media (max-width: 1000px) {
+    .know-me {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        min-height: auto;
+        padding: 115px 5% 60px;
+        gap: 30px;
+    }
+
+    .know-me .know-pic {
+        order: 1;
+        flex: none;
+        width: 260px;
+        max-width: 100%;
+        min-width: 0;
+        height: 350px;
+        margin: 0;
+    }
+
+    .know-me .text {
+        order: 2;
+        width: 100%;
+        max-width: 680px;
+        padding: 30px 25px;
+        margin: 0;
+    }
+
+    .know-me .text h1 {
+        font-size: 38px;
+        text-align: center;
+        margin: 0 0 15px;
+    }
+
+    .know-me .text p {
+        font-size: 16px;
+        line-height: 1.7;
+        text-align: justify;
+        margin: 0;
+    }
+
+    .know-me .rbutton {
+        order: 3;
+        flex: none;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .know-me .text {
+        padding: 25px 20px;
+    }
+
+    .know-me .text h1 {
+        font-size: 30px;
+    }
+
+    .know-me .text p {
+        font-size: 15px;
+    }
+
+    .know-me .know-pic {
+        width: 220px;
+        height: 300px;
+    }
+}
+
+
+
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+.footer {
+    width: 100%;
+    background-color: skyblue;
+    color: white;
+    padding: 18px 15px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* COPYRIGHT */
+.footer > p {
+    color: white;
+    font-size: 16px;
+    margin: 0 0 10px;
+    line-height: 1.4;
+}
+
+/* CONTACT INFORMATION */
+.footer .contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px 25px;
+    width: 100%;
+}
+
+/* CONTACT, EMAIL AND FACEBOOK */
+.footer .contact-info p {
+    color: white;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* LINKS */
+.footer .contact-info span,
+.footer .contact-info a {
+    color: white;
+}
+
+.footer .contact-info a {
+    text-decoration: none;
+}
+
+.footer .contact-info a:hover {
+    color: #212835;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer {
+        padding: 18px 10px;
+    }
+
+    .footer .contact-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer .contact-info p {
+        font-size: 14px;
+    }
+}
+
+
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.side-navbar {
+    width: 220px !important;
+    height: calc(100vh - 70px) !important;
+    background: #181e29 !important;
+    padding: 25px 15px !important;
+    position: fixed !important;
+    left: 0 !important;
+    top: 70px !important;
+    margin-top: 0 !important;
+    border-right: 1px solid #344254;
+    z-index: 99;
+}
+
+.side-navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.side-navbar ul li {
+    margin: 0 !important;
+}
+
+.side-navbar ul li a {
+    display: block;
+    padding: 13px 15px !important;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.side-navbar ul li a:hover,
+.side-navbar ul li a.act {
+    background: #283b50 !important;
+    color: skyblue !important;
+    border: 2px solid skyblue;
+    transform: translateX(5px);
+}
+
+
+/* ==========================================
+   ALL ABOUT SECTIONS
+========================================== */
+
+.t-skills,
+.work-exp,
+.education,
+.award-sec,
+.hobbies-sec {
+    margin-left: 220px !important;
+    padding: 100px 45px 60px !important;
+    min-height: 100vh;
+    background-color: #212835;
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   SECTION TITLES
+========================================== */
+
+.t-skills h1,
+.work-exp h1,
+.education h1,
+.award-sec h1,
+.hobbies-sec h1 {
+    font-size: 40px !important;
+    color: white;
+    margin-bottom: 25px !important;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+
+/* ==========================================
+   SKILLS
+========================================== */
+
+.t-skills p {
+    max-width: 750px;
+    margin: 0 auto 30px !important;
+    color: #cbd5e1;
+    line-height: 1.8;
+}
+
+.skills {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 15px !important;
+    max-width: 850px;
+    margin: 0 auto;
+    justify-items: stretch;
+}
+
+.skill {
+    width: 100% !important;
+    box-sizing: border-box;
+    padding: 20px 12px !important;
+    background: #181e29;
+    border: 4px solid skyblue !important;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.03);
+    border-color: white !important;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+}
+
+.skill img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.skill span {
+    display: block;
+    color: white;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   WORK EXPERIENCE - 4 PICTURES
+========================================== */
+
+.exp-container {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 15px !important;
+    max-width: 850px;
+    margin: 30px auto 0;
+    justify-items: center;
+}
+
+.exp-card {
+    width: 100% !important;
+    max-width: 180px !important;
+    height: 115px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #181e29;
+    border: 4px solid skyblue !important;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.exp-card:hover {
+    transform: translateY(-5px);
+    border-color: white !important;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+}
+
+.exp-card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block;
+}
+
+
+/* ==========================================
+   EDUCATION - 3 PICTURES
+========================================== */
+
+.edu-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    max-width: 750px;
+    margin: 30px auto 0;
+    justify-items: center;
+}
+
+.edu-card {
+    width: 100% !important;
+    max-width: 190px !important;
+    height: 190px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #181e29;
+    border: 4px solid skyblue !important;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    border-color: white !important;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+}
+
+.edu-card img {
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+}
+
+.edu-card h3 {
+    font-size: 13px;
+    color: skyblue;
+    margin: 6px 0 2px !important;
+}
+
+.edu-card h2 {
+    font-size: 15px;
+    color: white;
+    margin: 0 0 5px !important;
+}
+
+
+/* ==========================================
+   AWARDS - 1 PICTURE
+========================================== */
+
+.award-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    gap: 10px;
+    margin: 30px auto 0;
+}
+
+.award-card {
+    width: 100% !important;
+    max-width: 220px !important;
+    height: 190px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #181e29;
+    border: 4px solid skyblue !important;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.award-card:hover {
+    transform: translateY(-5px);
+    border-color: white !important;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+}
+
+.award-card img {
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+}
+
+.award-card h3 {
+    font-size: 13px;
+    color: skyblue;
+    margin: 6px 0 2px !important;
+}
+
+.award-card h2 {
+    font-size: 15px;
+    color: white;
+    margin: 0 0 5px !important;
+}
+
+
+/* ==========================================
+   HOBBIES - 3 PICTURES
+========================================== */
+
+.hobbies-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+    max-width: 750px;
+    margin: 30px auto 0;
+    justify-items: center;
+}
+
+.hobbies-card {
+    width: 100% !important;
+    max-width: 190px !important;
+    height: 190px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #181e29;
+    border: 4px solid skyblue !important;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+.hobbies-card:hover {
+    transform: translateY(-5px);
+    border-color: white !important;
+    box-shadow: 0 0 15px rgba(135, 206, 235, 0.3);
+}
+
+.hobbies-card img {
+    width: 100% !important;
+    height: 120px !important;
+    object-fit: cover !important;
+    border-radius: 0 !important;
+}
+
+.hobbies-card h3 {
+    font-size: 13px;
+    color: skyblue;
+    margin: 6px 0 2px !important;
+}
+
+.hobbies-card h2 {
+    font-size: 15px;
+    color: white;
+    margin: 0 0 5px !important;
+}
+
+
+/* ==========================================
+   ABOUT FOOTER
+   ORIGINAL DESIGN - UNCHANGED
+========================================== */
+
+.footer-about {
+    background-color: skyblue;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 13px;
+    border-top: 1px solid skyblue;
+}
+
+.footer-about p {
+    margin: 0 !important;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.contact-info-footer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: 8px 0 0 !important;
+}
+
+
+/* ==========================================
+   TABLET RESPONSIVE
+========================================== */
+
+@media (max-width: 1100px) {
+
+    .skills {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .exp-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        max-width: 500px;
+    }
+
+    .edu-container,
+    .hobbies-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        max-width: 500px;
+    }
+
+    .award-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+
+/* ==========================================
+   MOBILE RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+    .side-navbar {
+        left: -220px !important;
+    }
+
+    .side-navbar.active {
+        left: 0 !important;
+    }
+
+    .t-skills,
+    .work-exp,
+    .education,
+    .award-sec,
+    .hobbies-sec {
+        margin-left: 0 !important;
+        padding: 100px 20px 50px !important;
+        min-height: auto;
+    }
+
+    .t-skills h1,
+    .work-exp h1,
+    .education h1,
+    .award-sec h1,
+    .hobbies-sec h1 {
+        font-size: 30px !important;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 10px !important;
+    }
+
+    .exp-container,
+    .edu-container,
+    .hobbies-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 15px !important;
+    }
+
+    .exp-card,
+    .edu-card,
+    .hobbies-card {
+        max-width: 100% !important;
+    }
+
+    .award-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .award-card {
+        max-width: 220px !important;
+    }
+
+    .footer-about {
+        margin-left: 0 !important;
+    }
+
+    .contact-info-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+
+/* SMALL MOBILE */
+@media (max-width: 400px) {
+
+    .skills,
+    .exp-container,
+    .edu-container,
+    .hobbies-container {
+        grid-template-columns: 1fr !important;
+    }
+
+    .skill {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .exp-card,
+    .edu-card,
+    .hobbies-card {
+        max-width: 220px !important;
+    }
+}
+
+
+
+/* ==========================================
+   FIX ABOUT SECTION SPACING
+========================================== */
+
+/* ALL SECTIONS */
+.t-skills,
+.work-exp,
+.education,
+.award-sec,
+.hobbies-sec {
+    min-height: auto !important;
+    padding-top: 75px !important;
+    padding-bottom: 35px !important;
+}
+
+/* SECTION TITLE SPACING */
+.t-skills h1,
+.work-exp h1,
+.education h1,
+.award-sec h1,
+.hobbies-sec h1 {
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+}
+
+/* SKILLS */
+.t-skills p {
+    margin-bottom: 20px !important;
+}
+
+.skills {
+    margin-bottom: 0 ;
+}
+
+/* WORK EXPERIENCE */
+.exp-container {
+    margin-top: 20px ;
+}
+
+/* EDUCATION */
+.edu-container {
+    margin-top: 20px ;
+}
+
+/* AWARDS */
+.award-container {
+    margin-top: 20px ;
+}
+
+/* HOBBIES */
+.hobbies-container {
+    margin-top: 20px ;
+}
+
+
+
+
+
+/*Contact PAGE*/
+
+
+/* NEW CONTACT PAGE DESIGN */
+
+.contact {
+    min-height: 100vh;
+    height: auto;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    grid-template-areas:
+        "heading heading"
+        "info form";
+    align-items: center;
+    justify-content: center;
+    gap: 25px 50px;
+    padding: 110px 10% 50px;
+}
+
+/* HEADING */
+.contact-header {
+    grid-area: heading;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.contact-header h1 {
+    font-size: 48px;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.contact-header h1 span {
+    color: skyblue;
+}
+
+/* CONTACT INFORMATION */
+.contact-in {
+    grid-area: info;
+    background-color: #181e29;
+    width: 100%;
+    padding: 35px 30px;
+    border-radius: 15px;
+    border-left: 4px solid skyblue;
+    color: white;
+    text-align: left;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    transition: 0.3s ease;
+}
+
+.contact-in:hover {
+    transform: translateY(-5px);
+}
+
+.contact-in h3 {
+    font-size: 16px;
+    line-height: 2;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.contact-in h3:last-child {
+    margin-bottom: 0;
+}
+
+/* CONTACT FORM */
+.contact-container {
+    grid-area: form;
+    background-color: #181e29;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.contact-item,
+.contact-msg {
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.contact-item label,
+.contact-msg label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+}
+
+.contact-item input,
+.contact-msg textarea {
+    width: 100%;
+    background-color: white;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 13px 15px;
+    font-size: 14px;
+    color: #181e29;
+    resize: none;
+    transition: 0.3s ease;
+}
+
+.contact-item input:focus,
+.contact-msg textarea:focus {
+    outline: none;
+    border-color: skyblue;
+    box-shadow: 0 0 8px rgba(135,206,235,0.4);
+}
+
+/* SEND BUTTON */
+.contact-send {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 5px;
+}
+
+.contact-send button {
+    background-color: skyblue;
+    color: #181e29;
+    border: none;
+    border-radius: 8px;
+    height: 42px;
+    width: 140px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-send button:hover {
+    background-color: white;
+    transform: translateY(-3px);
+}
+
+/* TABLET RESPONSIVE */
+@media (max-width: 1000px) {
+
+    .contact {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "heading"
+            "form"
+            "info";
+        padding: 110px 7% 60px;
+        gap: 25px;
+    }
+
+    .contact-header h1 {
+        font-size: 38px;
+    }
+
+    .contact-container,
+    .contact-in {
+        width: 100%;
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .contact-send {
+        justify-content: center;
+    }
+}
+
+/* SMALL PHONES */
+@media (max-width: 600px) {
+
+    .contact {
+        padding: 100px 5% 50px;
+        gap: 20px;
+    }
+
+    .contact-header h1 {
+        font-size: 30px;
+    }
+
+    .contact-container {
+        padding: 25px 20px;
+    }
+
+    .contact-in {
+        padding: 25px 20px;
+    }
+
+    .contact-in h3 {
+        font-size: 14px;
+    }
+
+    .contact-item input,
+    .contact-msg textarea {
+        font-size: 14px;
+    }
+}
+
+
+
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+.footer {
+    width: 100%;
+    background-color: skyblue;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* COPYRIGHT */
+.footer > p {
+    color: white;
+    font-size: 15px;
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+
+/* CONTACT INFORMATION */
+.footer .contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 25px;
+}
+
+/* CONTACT, EMAIL AND FACEBOOK */
+.footer .contact-info p {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* LINKS */
+.footer .contact-info span,
+.footer .contact-info a {
+    color: white;
+}
+
+.footer .contact-info a {
+    text-decoration: none;
+}
+
+.footer .contact-info a:hover {
+    color: #212835;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 10px;
+    }
+
+    .footer .contact-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer .contact-info p {
+        font-size: 14px;
+    }
+}
+
+
+
+
+/*Others*/
+
+.wrap {
+    max-width: 900px;
+    margin: 100px auto 40px;
+    padding: 20px;
+}
+
+.other {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 80%;
+    max-width: 650px;
+    height: auto;
+    aspect-ratio: auto;
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 15px;
+    background-color: #181e29;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    transition: 0.3s ease;
+}
+
+.other:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px skyblue;
+}
+
+.other img {
+    width: 150px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.other h2 {
+    position: static;
+    font-size: 25px;
+    color: white;
+    text-shadow: none;
+    margin: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: lightblue;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .other-section {
+    margin-top: 90px;
+  }
+}
+
+
+/*resume*/
+
+/* Resume Section */
+.resume{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  margin-left: 450px;
+}
+
+/* Back Button */
+.backbutton {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.backbutton:hover {
+  color: skyblue;
+}
+
+
+
+/* Make side-navbar collapse into hamburger menu */
+@media (max-width: 1000px) {
+  .side-navbar {
+    position: fixed;
+    top: 70px;
+    left: -220px; /* hide most of it */
+    width: 220px;
+    height: calc(100vh - 70px);
+    background-color: #2b2f3a;
+    padding-top: 30px;
+    transition: left 0.4s ease;
+    z-index: 999;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+     margin-top: 0;
+  }
+
+  /* Bookmark tab visible */
+  .side-navbar::before {
+    content: '›'; 
+  position: absolute;
+  right: -25px; /* smaller width */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 80px;
+  background-color: #2b2f3a;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Rotate arrow when open */
+  .side-navbar.active::before {
+    content: '‹';
+    position: absolute;
+  right: -25px; /* smaller width */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 80px;
+  background-color: #2b2f3a;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s, color 0.3s;
+  }
+
+.side-navbar::before:hover {
+  background-color: aqua;
+  color: #1e1e2f;
+}
+
+  .side-navbar.active {
+    left: 0;
+  }
+
+  /* Toggle button inside bookmark */
+  .side-toggle {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .side-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .side-navbar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    padding: 0;
+    margin-top: 80px;
+  }
+
+  .side-navbar.active ul {
+    opacity: 1;
+  }
+
+  .side-navbar ul li {
+    margin: 10px 0;
+  }
+
+  .side-navbar ul li a {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    display: block;
+  }
+   .side-navbar ul li a:hover {
+    color: aqua;
+  }
+
+  /* Arrange experience cards by 2s */
+  .exp-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  /* Adjust About main content when sidebar is hidden */
+  .t-skills,
+  .work-exp,
+  .education,
+  .award-sec,
+  .hobbies-sec,
+  .footer-about {
+    margin-left: 0 !important;
+    padding: 100px 20px;
+    }
+
+
+  /* Adjust text and spacing */
+  .t-skills h1,
+  .work-exp h1,
+  .education h1,
+  .award-sec h1,
+  .hobbies-sec h1 {
+    font-size: 28px;
+  }
+
+  .t-skills p {
+    font-size: 15px;
+  }
+
+  
+  .footer-about p,
+  .contact-info-footer {
+    margin-left: 0 !important;
+  }
+
+  .contact-info-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/* For very narrow devices (phones under 600px) */
+@media (max-width: 600px) {
+  .exp-container {
+    grid-template-columns: 1fr; /* one per row */
+  }
+
+  .edu-container,
+  .award-container,
+  .hobbies-container {
+    grid-template-columns: 1fr;
+  }
+
+  .t-skills {
+    padding: 80px 15px;
+  }
+
+  .t-skills h1 {
+    font-size: 24px;
+  }
+
+  /* CENTER NAVIGATION */
+@media (min-width: 901px) {
+
+    .navbar {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+
+    .navbar .logo {
+        position: absolute;
+        left: 4%;
+    }
+
+    .navbar ul {
+        position: absolute !important;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+
+        width: auto !important;
+        gap: 45px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .navbar ul li {
+        margin: 0 !important;
+    }
+
+    .t-skills h1 span {
+    color: white !important;
+}
+
+
+
+/* ==========================================
+   FOOTER SECTION
+========================================== */
+
+.footer {
+    width: 100%;
+    background-color: skyblue;
+    color: white;
+    padding: 15px 10px;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/* COPYRIGHT */
+.footer > p {
+    color: white;
+    font-size: 15px;
+    margin: 0 0 8px;
+    line-height: 1.4;
+}
+
+/* CONTACT INFORMATION */
+.footer .contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 25px;
+}
+
+/* CONTACT, EMAIL AND FACEBOOK */
+.footer .contact-info p {
+    color: white;
+    font-size: 15px;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* FACEBOOK LINK */
+.footer .contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.footer .contact-info a:hover {
+    color: #212835;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer {
+        padding: 15px 10px;
+    }
+
+    .footer .contact-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .footer .contact-info p {
+        font-size: 14px;
+    }
+}
+
+
+}
+}
+
+
